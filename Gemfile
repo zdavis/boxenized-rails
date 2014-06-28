@@ -23,6 +23,7 @@ end
 
 group :development, :test do
   gem "debugger"
+  gem "debugger-xml"
   gem "factory_girl"
   gem "factory_girl_rails"
   gem "rspec"

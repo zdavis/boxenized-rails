@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-PID_FILE="../tmp/pids/unicorn.pid"

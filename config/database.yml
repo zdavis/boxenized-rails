@@ -1,25 +1,32 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+<%
 
-development:
-  <<: *default
-  database: db/development.sqlite3
+  def boxen?; ENV['BOXEN_HOME']; end
+  url = ENV["BOXEN_POSTGRESQL_URL"]
+  port = ENV["BOXEN_POSTGRESQL_PORT"]
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
+  prod_user = ENV["RAILS_DB_USER"]
+  prod_pass = ENV["RAILS_DB_PASS"]
+  prod_db = ENV["RAILS_DB_NAME"]
+
+%>
+
+common: &common
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  pool: 50
+  port: <%= port %>
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  <<: *common
+  user: <%= prod_user %>
+  database: <%= prod_db %>
+  password: <%= prod_pass %>
+
+development:
+  <<: *common
+  database: vocat_development
+
+test:
+  <<: *common
+  database: vocat_test

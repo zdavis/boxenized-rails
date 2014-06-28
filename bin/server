@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BIN_DIR ="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ "$1" = "start" ]; then
-  CONFIG_PATH="$SCRIPT_DIR/../config/unicorn.rb"
-  $SCRIPT_DIR/unicorn_rails -D -c $CONFIG_PATH
+  CONFIG_PATH="$BIN_DIR/../config/unicorn.rb"
+  $BIN_DIR/unicorn_rails -D -c $CONFIG_PATH
 fi
 
 if [ "$1" = "stop" ]; then
-  kill -s QUIT `cat $SCRIPT_DIR/../tmp/pids/unicorn.pid`
+  kill -s QUIT `cat $BIN_DIR/../tmp/pids/unicorn.pid`
 fi
 
 if [ "$1" = "kill" ]; then
-  kill -s INT `cat $SCRIPT_DIR/../tmp/pids/unicorn.pid`
+  kill -s INT `cat $BIN_DIR/../tmp/pids/unicorn.pid`
 fi
 
 if [ "$1" = "restart" ]; then
-  kill -s HUP `cat $SCRIPT_DIR/../tmp/pids/unicorn.pid`
+  kill -s HUP `cat $BIN_DIR/../tmp/pids/unicorn.pid`
 fi
