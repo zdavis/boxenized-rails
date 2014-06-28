@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+= 1. Change project name
 
-Things you may want to cover:
+In config/unicorn.rb change "melange" to the name of your project that boxen uses.
 
-* Ruby version
+= 2. Add secret_key_base
 
-* System dependencies
+Copy config/secrets.yml.example to config/secrets.yml. Use "rake secret" to generate new keys and paste them into the secrets.yml file.
 
-* Configuration
+= 3. Start the server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Start it up with ./bin/server start. Stop it with ./bin/server stop. Or use rubymine and unicorn—-be sure to set -c config/unicorn.rb as a server argument if you do.
