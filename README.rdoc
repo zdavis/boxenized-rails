@@ -2,12 +2,16 @@
 
 === 1. Change project name
 
-In config/unicorn.rb change "melange" to the name of your project that boxen uses.
+In config/unicorn.rb change "yourapp" to the name of your project in boxen.
 
-=== 2. Add secret_key_base
+=== 2. Change DB name
+
+In config/datbases.yml change "yourapp" to the name of your project in boxen
+
+=== 3. Add secret_key_base
 
 Copy config/secrets.yml.example to config/secrets.yml. Use "rake secret" to generate new keys and paste them into the secrets.yml file.
 
-=== 3. Start the server
+=== 4. Start the server
 
 Start it up with ./bin/server start. Stop it with ./bin/server stop. Or use rubymine and unicorn—-be sure to set -c config/unicorn.rb as a server argument if you do.
