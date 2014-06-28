@@ -2,7 +2,7 @@ rails_env = ENV['RAILS_ENV'] || 'production'
 rails_root  = `pwd`.gsub("\n", "")
 
 if rails_env == 'development'
-  socket = "#{ENV['BOXEN_SOCKET_DIR']}/melange"
+  socket = "#{ENV['BOXEN_SOCKET_DIR']}/yourapp"
   preload = false
   processes = 2
 else
