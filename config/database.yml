@@ -25,8 +25,8 @@ production:
 
 development:
   <<: *common
-  database: vocat_development
+  database: yourapp_development
 
 test:
   <<: *common
-  database: vocat_test
+  database: yourapp_test
